@@ -18,8 +18,8 @@ const Home = () => {
         </header>
         <TotalBalanceBox 
           accounts={[]}
-          totalBanks={1}
-          totalCurrentBalance={3000.25}
+          totalBanks={4}
+          totalCurrentBalance={13000.25}
         />
       </div>
     </section>

@@ -16,14 +16,14 @@ const Sidebar = ({ user }: SiderbarProps) => {
         <nav className='flex flex-col gap-4'>
             <Link 
                 href='/'
-                className='mb-12 cursor-pointer items-center gap-2 flex-col'
+                className='mb-5 mr-4 cursor-pointer items-center gap-1 flex flex-center'
             >
                 <Image 
                     src='/icons/neo_spring.png'
                     width={50}
                     height={50}
                     alt='Neo Spring Banking Logo'
-                    className='size-[100px] max-xl:size-16'
+                    className='size-[100px]'
                 />
                 <h1 className='sidebar-logo'>
                     NeoSpring

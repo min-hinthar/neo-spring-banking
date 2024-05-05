@@ -30,7 +30,7 @@ const Sidebar = ({ user }: SiderbarProps) => {
                 </h1>
             </Link>
                 {sidebarLinks.map((item) => {
-                    const isActive = pathname === item.route || pathname.startsWith(`${item.route}`)
+                    const isActive = pathname === item.route || pathname.startsWith(`${item.route}/`)
 
                     return (
                         <Link

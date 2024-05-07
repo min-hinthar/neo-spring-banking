@@ -8,21 +8,14 @@ import { z } from "zod"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { useForm } from "react-hook-form"
 import { Button } from "@/components/ui/button"
-import {
-  Form,
-  FormControl,
-  FormDescription,
-  FormField,
-  FormItem,
-  FormLabel,
-  FormMessage,
-} from "@/components/ui/form"
+import { Form } from "@/components/ui/form"
 import { Input } from "@/components/ui/input"
 import CustomInput from './CustomInput'
 import { authFormSchema } from '@/lib/utils'
 import { Loader2 } from 'lucide-react'
 import { useRouter } from 'next/navigation'
-import { getLoggedInUser, signIn, signUp } from '@/lib/actions/user.actions'
+import { signIn, signUp } from '@/lib/actions/user.actions'
+import PlaidLink from './PlaidLink'
 
 
 const AuthForm = ({ type }: { type: string }) => {
@@ -49,9 +42,24 @@ const AuthForm = ({ type }: { type: string }) => {
         setIsLoading(true)
         
         try {
+
+            
             // SIGN-UP with APPWRITE & Create PLAID Token
             if(type === "sign-up"){
-                const newUser = await signUp (data);
+
+                const userData = {
+                    firstName: data.firstName!,
+                    lastName: data.lastName!,
+                    address1: data.address1!,
+                    city: data.city!,
+                    state: data.state!,
+                    postalCode: data.postalCode!,
+                    dateOfBirth: data.dateOfBirth!,
+                    ssn: data.ssn!,
+                    email: data.email,
+                    password: data.password
+                }
+                const newUser = await signUp (userData);
 
                 setUser(newUser);
             }
@@ -110,7 +118,10 @@ const AuthForm = ({ type }: { type: string }) => {
         
         {user ? (
             <div className='flex flex-col gap-4'>
-                {/* {PLAID LINK COMPONENT} */}
+                <PlaidLink 
+                    user={user}
+                    variant='primary'
+                />
             </div>
         ) : (
             <>
@@ -163,13 +174,13 @@ const AuthForm = ({ type }: { type: string }) => {
                                     control={form.control}
                                     name='dateOfBirth'
                                     label='Date of Birth'
-                                    placeholder='MM/DD/YYYY'
+                                    placeholder='YYYY-MM-DD'
                                     />
                                     <CustomInput 
                                     control={form.control}
                                     name='ssn'
                                     label='SSN'
-                                    placeholder='Example: 123-45-6789'
+                                    placeholder='Example: 123456789'
                                     />
                                 </div>
                             </>

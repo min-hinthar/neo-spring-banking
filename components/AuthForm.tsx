@@ -22,6 +22,7 @@ import CustomInput from './CustomInput'
 import { authFormSchema } from '@/lib/utils'
 import { Loader2 } from 'lucide-react'
 import { useRouter } from 'next/navigation'
+import { getLoggedInUser, signIn, signUp } from '@/lib/actions/user.actions'
 
 
 const AuthForm = ({ type }: { type: string }) => {
@@ -50,15 +51,15 @@ const AuthForm = ({ type }: { type: string }) => {
         try {
             // SIGN-UP with APPWRITE & Create PLAID Token
             if(type === "sign-up"){
-                // const newUser = await signUp (data);
+                const newUser = await signUp (data);
 
-                // setUser(newUser);
+                setUser(newUser);
             }
-             if (type === 'sign-in') {
-                // const response = await signIn({
-                //     email: data.email,
-                //     password: data.password,
-                // })
+                if (type === 'sign-in') {
+                    const response = await signIn({
+                        email: data.email,
+                        password: data.password,
+                    })
 
                 if(response) router.push('/');
              }
@@ -99,7 +100,7 @@ const AuthForm = ({ type }: { type: string }) => {
                     }
                     <p className='text-16 font-normal text-gray-600'>
                         {user 
-                            ? 'Link Existing Account'
+                            ? 'Link Bank Accounts To Get Started!'
                             : 'Enter Your Account Details'
                         }
                     </p>

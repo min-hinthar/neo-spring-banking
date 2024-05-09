@@ -7,6 +7,7 @@ import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import React from 'react'
 import Footer from './Footer'
+import PlaidLink from './PlaidLink'
 
 const Sidebar = ({ user }: SiderbarProps) => {
 
@@ -21,10 +22,10 @@ const Sidebar = ({ user }: SiderbarProps) => {
             >
                 <Image 
                     src='/icons/neo_spring.png'
-                    width={50}
-                    height={50}
+                    width={100}
+                    height={100}
                     alt='Neo Spring Banking Logo'
-                    className='size-[100px]'
+                    className='pl-2'
                 />
                 <h1 className='sidebar-logo'>
                     NeoSpring
@@ -58,7 +59,9 @@ const Sidebar = ({ user }: SiderbarProps) => {
                     )
                 })}
 
-                USER
+                <PlaidLink 
+                    user={user}
+                />
         </nav>
             <Footer 
                 user={user}

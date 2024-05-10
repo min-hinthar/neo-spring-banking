@@ -1,15 +1,28 @@
 # **Neo Spring Banking** 
-Nextjs.14 Financial SaaS Platform
-
-<img src="./public/GenAI.png" alt="logo" width="200"/>
-
-
-### 🌐 Demo
-Deployed URL: https://Neo Spring Banking.vercel.app/
-
+## **Nextjs.14 Financial SaaS Platform**
 
 ## 📝 Overview
 **Neo Spring Banking** is a cutting-edge financial Software as a Service (SaaS) platform that revolutionizes the way users interact with their finances. Built on the robust foundation of **Next.js14**, it offers a comprehensive suite of features that cater to the digital age, connecting multiple bank accounts, displaying transactions in real-time, and facilitating seamless money transfers.
+
+## 📋 <a name="table">Table of Contents</a>
+
+1. 🌐 [Demo](#demo)
+2. ✨ [Features](#features)
+3. 🚀 [Tech-Stacks](#tech-stacks)
+4. 🛠️ [Installations](#installations)
+5. 📖 [License](#license)
+6. 🙏 [Acknowledgement](#acknowledgement)
+
+![logo](public/icons/neo_spring.png "Logo")
+![Screenshot](public/icons/neo_spring_Auth.jpeg "Auth") 
+![Screenshot](public/icons/neo_spring_homepage.jpeg "HomePage") 
+![Screenshot](public/icons/neo_spring_MyBanks.jpeg "MyBanks") 
+![Screenshot](public/icons/neo_spring_TransactionHistory.jpeg "TransactionHistory") 
+![Screenshot](public/icons/neo_spring_PaymentTransfer.jpeg "PaymentTransfer")
+
+
+## 🌐 Demo
+Deployed URL: [https://neo-spring-banking.vercel.app/]
 
 
 ## ✨ Features
@@ -48,6 +61,7 @@ Clone the repository: git clone https://github.com/<your-username>/image-transfo
 Install the dependencies: npm install
 Create a .env.local file in the root directory and add the following environment variables:
 
+```
 #NEXT
 NEXT_PUBLIC_SITE_URL=
 
@@ -73,7 +87,7 @@ DWOLLA_SECRET=
 DWOLLA_BASE_URL=https://api-sandbox.dwolla.com
 DWOLLA_ENV=sandbox
 
-
+```
 Run the development server: npm run dev
 
 Open http://localhost:3000 with your browser to see the result.
